@@ -1,0 +1,51 @@
+<nav>
+  <div class="nav-wrapper teal">
+    <a href="#" class="brand-logo center">Youtube Downloader</a>
+  </div>
+</nav>
+<div class="container">
+  <div class="row mt-36">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s7 offset-s1">
+          <i class="material-icons prefix">videocam</i>
+          <input id="icon_telephone" type="text" class="validate" ng-model="url" ng-disabled="isLoading">
+          <label for="icon_telephone">Youtube video URL</label>
+        </div>
+        <div class="input-field col s3">
+          <a ng-disabled="isLoading" class="waves-effect waves-light btn" ng-click="fetchData()"><i class="material-icons left">{{isLoading ? "access_time" : "system_update_alt"}}</i>{{isLoading ? "Fetching" : "Fetch"}}</a>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="row" ng-show="hasVideoInfo">
+    <div class="col s10 offset-s1">
+      <ul class="collection with-header z-depth-3">
+        <li class="collection-item red darken-4"><h5 class="white-text truncate">{{videoData.description}}</h5></li>
+        <li class="collection-item" ng-repeat="video in videoData.list"><div>Format: {{video.container}}, Quality: {{video.quality}}, Resolution: {{video.resolution}}<a ng-href="{{video.url}}" target="_BLANK" class="secondary-content"><i class="material-icons">file_download</i></a></div></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div id="Disclaimer" class="modal">
+    <div class="modal-content">
+      <h4>Disclaimer</h4>
+      <p>This program is created for educational purpose only.
+We do not hold any copyright of the content posted here. No file is being saved on the server. All material is served from the Youtube Server.
+Youtube is the registered trademark of Youtube LLC, a subsidiary of Google.
+This application does NOT anything to do with Google Inc. Every trade marks are property of his owners. Any materials downloaded or otherwise obtained through the use of the Site is done at your own discretion and risk and you are solely responsible for any infection of your computer system or loss of data that results from the download of any such materials or use of the site. We definitely disclaim any responsibility of mistakes or omission of the content on the site and any explicit or implicit warranty for the materials and information, including but not limited to the guarantees related to ownership, non-infringement of a third party's rights, quality, and having no computer virus. We may make changes to the contents of the website at any time without any notification.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+</div>
+
+<footer class="page-footer teal">
+  <div class="footer-copyright">
+    <div class="container">
+    <a class="grey-text text-lighten-4" href="https://www.facebook.com/genius.joker" target="_blank">By: Gaurav Srivastava</a>
+    <a class="grey-text text-lighten-4 right modal-trigger" href="#Disclaimer">Disclaimer</a>
+    </div>
+  </div>
+</footer>
